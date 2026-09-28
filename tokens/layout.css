@@ -1,0 +1,14 @@
+:root {
+  --im-carousel-width: 1080px;
+  --im-carousel-height: 1350px;
+  --im-reel-width: 1080px;
+  --im-reel-height: 1920px;
+  --im-carousel-safe-x: 72px;
+  --im-carousel-safe-y: 80px;
+  --im-reel-safe-x: 80px;
+  --im-reel-safe-top: 180px;
+  --im-reel-safe-bottom: 300px;
+  --im-radius-sm: 12px;
+  --im-radius-md: 24px;
+}
+

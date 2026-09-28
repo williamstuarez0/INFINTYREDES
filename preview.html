@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Infinity Manta — Design System v2</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: var(--im-font); background: var(--im-paper); color: var(--im-black); }
+    .hero { min-height: 76vh; display: grid; grid-template-columns: 1.15fr .85fr; gap: 5vw; align-items: end; padding: 6vw; overflow: hidden; }
+    .hero h1 { max-width: 900px; margin: 24px 0 0; font-size: clamp(64px, 9vw, 158px); line-height: .86; letter-spacing: -.065em; }
+    .hero p { max-width: 680px; margin: 28px 0 0; font-size: clamp(18px, 1.6vw, 26px); line-height: 1.55; }
+    .hero-mark { width: min(38vw, 560px); aspect-ratio: 1; border-radius: 50%; background: conic-gradient(from 230deg, var(--im-blue), var(--im-cyan), var(--im-lime), var(--im-blue)); filter: saturate(1.08); transform: translate(8%, 13%); position: relative; }
+    .hero-mark::after { content: '∞'; position: absolute; inset: 0; display: grid; place-items: center; color: white; font: 800 min(24vw, 360px)/1 var(--im-font); transform: translateY(-3%); }
+    .eyebrow { text-transform: uppercase; letter-spacing: var(--im-label-tracking); font-size: 14px; font-weight: 600; }
+    .dark { background: var(--im-night); color: var(--im-white); padding: 7vw 6vw; }
+    .section-head { display: grid; grid-template-columns: .65fr 1.35fr; gap: 40px; align-items: start; margin-bottom: 52px; }
+    .section-head h2 { margin: 0; font-size: clamp(44px, 6vw, 100px); line-height: .94; letter-spacing: -.05em; }
+    .section-head p { max-width: 660px; margin: 8px 0 0 auto; color: #b9bec0; font-size: 20px; line-height: 1.6; }
+    .logos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .logo-tile { min-height: 220px; padding: 38px; display: flex; align-items: center; border: 1px solid #2a2e30; }
+    .logo-tile.light { background: var(--im-paper); }
+    .logo-tile.night { background: #101416; }
+    .logo-tile img { width: min(100%, 460px); height: auto; }
+    .swatches { display: grid; grid-template-columns: repeat(5, 1fr); margin-top: 70px; }
+    .swatch { min-height: 180px; padding: 22px; display: flex; flex-direction: column; justify-content: flex-end; font-size: 14px; font-weight: 600; }
+    .swatch:nth-child(1) { background:#008fd0; }
+    .swatch:nth-child(2) { background:#95c11f; }
+    .swatch:nth-child(3) { background:#0052a1; color:white; }
+    .swatch:nth-child(4) { background:#000; color:white; border:1px solid #292929; }
+    .swatch:nth-child(5) { background:#575756; color:white; }
+    .reference { padding: 7vw 6vw; }
+    .reference h2 { max-width: 1000px; margin: 0 0 20px; font-size: clamp(48px, 7vw, 112px); line-height: .92; letter-spacing: -.055em; }
+    .reference > p { max-width: 760px; margin: 0 0 54px; font-size: 20px; line-height: 1.6; }
+    .slides { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .slides figure { margin: 0; background: white; box-shadow: 0 16px 40px rgba(0,0,0,.08); }
+    .slides img { display: block; width: 100%; height: auto; }
+    .slides figcaption { padding: 14px 16px; font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
+    .principles { background: white; padding: 7vw 6vw; }
+    .principle-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 36px; margin-top: 58px; }
+    .principle { padding-top: 22px; border-top: 5px solid; border-image: var(--im-gradient) 1; }
+    .principle span { font-size: 14px; letter-spacing: .16em; text-transform: uppercase; font-weight: 600; }
+    .principle h3 { margin: 18px 0 12px; font-size: 32px; line-height: 1.05; }
+    .principle p { color: var(--im-gray); line-height: 1.6; }
+    footer { padding: 40px 6vw; background: var(--im-night); color: white; display: flex; justify-content: space-between; gap: 20px; align-items: center; }
+    footer img { width: 190px; }
+    @media (max-width: 900px) {
+      .hero, .section-head { grid-template-columns: 1fr; }
+      .hero-mark { width: 70vw; justify-self: end; }
+      .slides { grid-template-columns: repeat(2, 1fr); }
+      .principle-grid { grid-template-columns: 1fr; }
+      .logos { grid-template-columns: 1fr; }
+      .swatches { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Design System v2 · Social & Motion</div>
+        <h1>Del concepto a la materia.</h1>
+        <p>Un sistema para que cada carrusel y reel conserve el oficio, la claridad y la presencia visual de Infinity.</p>
+      </div>
+      <div class="hero-mark" aria-hidden="true"></div>
+    </section>
+
+    <section class="dark">
+      <div class="section-head">
+        <h2>Marca real.<br>Logo real.</h2>
+        <p>Las variantes cambian según el fondo; la construcción nunca se improvisa. El gradiente firma, la fotografía demuestra y el contraste organiza.</p>
+      </div>
+      <div class="logos">
+        <div class="logo-tile light"><img src="assets/brand/logo-horizontal-gradient-positive.svg" alt="Logo Infinity para fondo claro"></div>
+        <div class="logo-tile night"><img src="assets/brand/logo-horizontal-gradient-negative.svg" alt="Logo Infinity para fondo oscuro"></div>
+      </div>
+      <div class="swatches">
+        <div class="swatch">Cyan<br>#008FD0</div>
+        <div class="swatch">Verde<br>#95C11F</div>
+        <div class="swatch">Azul<br>#0052A1</div>
+        <div class="swatch">Negro<br>#000000</div>
+        <div class="swatch">Gris<br>#575756</div>
+      </div>
+    </section>
+
+    <section class="reference">
+      <div class="eyebrow">Piso de calidad</div>
+      <h2>Referencia aprobada, no plantilla rígida.</h2>
+      <p>La secuencia que ya funcionó define el nivel de fotografía, jerarquía y ritmo. Las piezas futuras deben compartir su criterio, no copiar su grilla slide por slide.</p>
+      <div class="slides">
+        <figure><img src="assets/references/carousel-approved/01 Hook.png" alt="Slide 1"><figcaption>01 · Hook</figcaption></figure>
+        <figure><img src="assets/references/carousel-approved/02 Problema.png" alt="Slide 2"><figcaption>02 · Problema</figcaption></figure>
+        <figure><img src="assets/references/carousel-approved/03 Falla 01.png" alt="Slide 3"><figcaption>03 · Desarrollo</figcaption></figure>
+        <figure><img src="assets/references/carousel-approved/04 Falla 02.png" alt="Slide 4"><figcaption>04 · Desarrollo</figcaption></figure>
+        <figure><img src="assets/references/carousel-approved/05 Falla 03.png" alt="Slide 5"><figcaption>05 · Desarrollo</figcaption></figure>
+        <figure><img src="assets/references/carousel-approved/06 Solución.png" alt="Slide 6"><figcaption>06 · Solución</figcaption></figure>
+        <figure><img src="assets/references/carousel-approved/07 Evidencia.png" alt="Slide 7"><figcaption>07 · Evidencia</figcaption></figure>
+        <figure><img src="assets/references/carousel-approved/08 CTA.png" alt="Slide 8"><figcaption>08 · CTA</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="principles">
+      <div class="eyebrow">Tres decisiones</div>
+      <div class="principle-grid">
+        <article class="principle"><span>01 · Evidencia</span><h3>El trabajo habla.</h3><p>La fotografía real muestra escala, luz, textura y acabado. No se sustituye con formas decorativas.</p></article>
+        <article class="principle"><span>02 · Ritmo</span><h3>Cada cuadro cumple una función.</h3><p>Imagen, texto, detalle, proceso y cierre se alternan para que la secuencia avance.</p></article>
+        <article class="principle"><span>03 · Claridad</span><h3>Una idea a la vez.</h3><p>El usuario entiende el mensaje antes de notar el sistema visual que lo sostiene.</p></article>
+      </div>
+    </section>
+  </main>
+  <footer><img src="assets/brand/logo-horizontal-white.svg" alt="Infinity"><span>Infinity Manta · Design System v2</span></footer>
+</body>
+</html>
+

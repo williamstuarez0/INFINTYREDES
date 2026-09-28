@@ -1,0 +1,12 @@
+:root {
+  --im-cyan: #008fd0;
+  --im-lime: #95c11f;
+  --im-blue: #0052a1;
+  --im-black: #000000;
+  --im-gray: #575756;
+  --im-white: #ffffff;
+  --im-paper: #f4f3ee;
+  --im-night: #0a0d0f;
+  --im-gradient: linear-gradient(90deg, var(--im-lime) 0%, var(--im-cyan) 100%);
+}
+
