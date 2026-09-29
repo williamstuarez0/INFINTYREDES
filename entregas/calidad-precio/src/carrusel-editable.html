@@ -169,6 +169,23 @@ body.capa #s4::before { content: ''; position: absolute; left: 0; right: 0; top:
 body.capa-top #s2 { background: transparent; }
 body.capa-top #s2 .giant { visibility: hidden; }
 body.capa-bottom #s2 > :not(.giant) { visibility: hidden; }
+
+/* ---- Ajustes para el importador de Canva (no soporta gap ni backdrop-filter) ---- */
+.tag, .pill, .foot .swipe, #s1 .mark, #s5 .row, #s6 .save, #s7 .pol p, #s8 .cta { gap: 0 !important; }
+.tag b { margin-right: 16px; }
+.foot .swipe i { margin-left: 16px; }
+.pill > span:first-child, .pill > .badge { margin-right: 12px; }
+#s1 .mark.l .badge { margin-right: 14px; }
+#s1 .mark.r .badge { margin-left: 14px; }
+#s5 .row .d { margin: 0 12px; }
+#s6 li { display: block; padding: 18px 0; }
+#s6 li span { display: inline-block; margin-right: 18px; }
+#s6 .save svg { margin-right: 14px; }
+#s7 .pol p i { margin-right: 10px; }
+#s8 .cta svg { margin-right: 18px; }
+#s8 .glass { background: rgba(10,13,15,.66); }
+#s4 .lab .pill { background: rgba(10,13,15,.85); }
+#s6 .cap .pill { background: rgba(255,255,255,.18); }
 </style>
 </head>
 <body>
