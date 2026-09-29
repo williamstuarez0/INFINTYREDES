@@ -58,6 +58,34 @@ Usar al menos cinco en una serie de ocho. Ninguna se repite dos veces seguidas.
 5. Si alguna imagen generada sigue en baja resolución (<800px), la slide muestra automáticamente la franja «VISTA PREVIA». No se publica hasta reemplazarla.
 6. Revisar cada PNG al 100 % con `social/EXPORT_CHECKLIST.md`.
 
+## Cómo se decide el tema (antes de diseñar)
+
+1. Proponer 3–4 temas con etapa del embudo, hook y por qué puede circular. El cliente elige; si da «carta libre», enfocar la idea en una tensión verdadera y demostrable.
+2. Buscar un ángulo local y visual: «El sol de Manta no hace descuentos», «El salitre tampoco negocia». Lo local y lo verdadero se comparte más que lo genérico.
+3. Incluir siempre un matiz honesto («No todo lo económico es malo…») y nunca atacar a otros proveedores ni inventar cifras o duraciones.
+
+## Imágenes generadas con Canva AI
+
+- Se generan con la herramienta `generate-image` del conector de Canva (proporción `PORTRAIT_4_5`), con prompts sin texto, logos ni marcas. Quedan guardadas en la cuenta de Canva del cliente con su media ID.
+- Este entorno solo recibe miniaturas (~160 px); canva.com está bloqueado por la red. En local, las slides con miniaturas muestran la franja «VISTA PREVIA». Las versiones finales se arman dentro de Canva con la imagen en alta resolución (ver abajo).
+- Para usar un objeto generado como recorte dentro de Canva: `remove-background` sobre su media ID.
+
+## Recortes de fotos reales
+
+- `rembg` con `isnet-general-use` (mejor que `u2net` para objetos). Endurecer la transparencia (alfa `(a−0.2)/0.5`) para evitar zonas turbias.
+- Nunca dejar un borde recto de recorte dentro del cuadro: el objeto sale por un borde del slide o se funde con un degradado de transparencia.
+- Si el objeto choca con el texto (p. ej. una escalera), fundir la parte superior a transparente **dentro del PNG** (no con `mask-image`), así funciona igual en Canva.
+- Etiquetar las fotos de proyectos reales con una píldora «Proceso Infinity · Cliente» o «Proyecto Infinity · Cliente».
+
+## Entrega en Canva
+
+Los PNG se publican en GitHub (rama del trabajo) y Canva los importa desde `raw.githubusercontent.com` (`upload-asset-from-url`); los HTML se importan vía `raw.githack.com/<owner>/<repo>/<commit>/…` (`import-design-from-url`). Se entregan dos diseños:
+
+1. **Versión exacta** (`canva/import.html`): cada página es el PNG final; en las slides con imágenes generadas se exporta la capa de diseño con huecos transparentes (`render-capas.js`, `?capa=top|bottom`) y debajo se coloca la imagen de alta resolución de Canva (`insert_fill` + `layer_element` al fondo). Idéntica al diseño; textos no editables.
+2. **Versión editable** (`src/carrusel-editable.html`): textos editables en Poppins. El importador de Canva no soporta `gap`, `backdrop-filter` ni `mask-image`: usar márgenes, panel oscuro translúcido en el CTA y fundidos incorporados en los PNG. Después de importar: reemplazar miniaturas por las imágenes de alta resolución (`update_fill`), separar el tag de su línea (texto a `left: 128`) y revisar píldoras con icono.
+
+Reglas: mostrar vista previa y pedir aprobación antes de guardar (`commit`); si el cliente ya editó una página en Canva, no sobrescribirla sin preguntar.
+
 ## Qué mantener fresco entre publicaciones
 
 El estilo es un sistema, no una plantilla fija. En cada carrusel nuevo:
