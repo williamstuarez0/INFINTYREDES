@@ -7,6 +7,10 @@
 - 6–9 slides según la historia; ocho es una guía, no una obligación.
 - Cada slide se exporta como PNG individual. El PDF opcional debe ser multipágina.
 
+## Estilo vigente
+
+El estilo por defecto es **Póster Editorial**: `social/STYLE_POSTER_EDITORIAL.md`. Su implementación de referencia (`entregas/calidad-precio/`) es el nuevo piso de calidad, junto con `assets/references/carousel-approved/`. Sin contador de slides.
+
 ## Objetivo visual
 
 El carrusel debe sentirse como una campaña editorial hecha con el trabajo real de Infinity. La fotografía, el titular y el ritmo de la secuencia son protagonistas. La referencia de `assets/references/carousel-approved/` es el piso de calidad.

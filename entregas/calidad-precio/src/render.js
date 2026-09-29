@@ -1,4 +1,5 @@
 // Renderiza cada <section class="slide"> de carrusel.html como PNG 1080x1350.
+// Uso: npm install && npm run render  (ajusta `names` al guion de cada carrusel)
 const { chromium } = require('playwright-core');
 const path = require('path');
 const names = ['hook', 'sol', 'salitre', 'noche', 'cuenta', 'checklist', 'infinity', 'cta'];
