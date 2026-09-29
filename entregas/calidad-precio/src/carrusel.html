@@ -158,6 +158,17 @@ h1, h2 { font-weight: 800; letter-spacing: -0.045em; line-height: .96; }
 #s8 .cta { display: inline-flex; align-items: center; gap: 18px; background: var(--grad); color: #fff; padding: 22px 40px 22px 26px; border-radius: 60px; font-size: 38px; font-weight: 700; box-shadow: 0 16px 40px rgba(0,143,208,.35); }
 #s8 .cta svg { width: 44px; }
 #s8 .web { position: absolute; left: 0; right: 0; bottom: 64px; text-align: center; font-size: 24px; font-weight: 600; letter-spacing: .16em; color: #fff; text-transform: uppercase; }
+
+/* ---------- Capas para Canva (?capa=top|bottom): las imágenes generadas se colocan en Canva en alta resolución ---------- */
+body.capa { background: transparent; }
+body.capa .slide { margin: 0; }
+body.capa img.gen, body.capa .lowres-flag { visibility: hidden !important; }
+body.capa #s1, body.capa #s3, body.capa #s4 { background: transparent; }
+body.capa #s1::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 670px; background: linear-gradient(180deg, var(--paper) 0, var(--paper) 520px, rgba(244,243,238,0) 670px); }
+body.capa #s4::before { content: ''; position: absolute; left: 0; right: 0; top: 860px; bottom: 0; background: var(--night); }
+body.capa-top #s2 { background: transparent; }
+body.capa-top #s2 .giant { visibility: hidden; }
+body.capa-bottom #s2 > :not(.giant) { visibility: hidden; }
 </style>
 </head>
 <body>
@@ -305,6 +316,8 @@ h1, h2 { font-weight: 800; letter-spacing: -0.045em; line-height: .96; }
 </section>
 
 <script>
+  const capa = new URLSearchParams(location.search).get('capa');
+  if (capa) document.body.classList.add('capa', 'capa-' + capa);
   // Marca la slide si su imagen generada es todavía la miniatura (evita exportarla como final sin aviso)
   window.addEventListener('load', () => {
     document.querySelectorAll('img.gen').forEach(img => {
