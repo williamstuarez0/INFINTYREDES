@@ -73,3 +73,13 @@ Todas aparecen solo como evidencia positiva. **Confirmar con Miwis Ice Cream que
 ## Edición
 
 El diseño vive en `src/carrusel.html` (Poppins local, tokens de marca, SVG oficiales). `src/render.js` exporta cada `<section class="slide">` a PNG 1080 × 1350 con Chromium (`playwright-core`).
+
+## En Canva
+
+| Diseño | Qué es |
+|---|---|
+| **Calidad vs precio — carrusel Infinity** (`DAHWixLGTOU`) | Versión exacta: diseño en capas PNG; imágenes generadas en alta resolución como capas movibles. Textos no editables. |
+| **Calidad vs precio — EDITABLE v2** (`DAHWi8OXAS8`) | Textos editables en Poppins, fotos e imágenes generadas en alta resolución. Diferencias menores: sin efecto vidrio en el CTA (panel oscuro translúcido), checklist sin separadores de fila y bordes de foto sin fundido. |
+| Calidad vs precio — EDITABLE (prueba) / EDITABLE | Pruebas de importación; se pueden borrar. |
+
+Cómo se importan: `canva/import.html` (versión exacta, capas de `canva/`) y `src/carrusel-editable.html` (versión editable) se publican vía `raw.githack.com` y se importan con la herramienta de importación de Canva.
