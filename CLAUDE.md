@@ -8,7 +8,7 @@ Antes de crear cualquier pieza:
 
 1. Lee `DESIGN.md` completo.
 2. Si la pieza requiere una idea, guion, calendario o intención comercial, lee `content/README.md`, `content/CONTENT_STRATEGY.md` y `content/FUNNEL.md`.
-3. Lee el archivo del canal: `social/CAROUSELS.md` o `social/REELS.md`.
+3. Lee el archivo del canal: `social/CAROUSELS.md` o `social/REELS.md`. Para carruseles, aplica el estilo vigente `social/STYLE_POSTER_EDITORIAL.md` y parte de su implementación de referencia en `entregas/calidad-precio/`.
 4. Lee `social/MEDIA_POLICY.md`, `social/COPY_GUIDE.md` y `social/EXPORT_CHECKLIST.md`.
 5. Revisa los archivos disponibles en `assets/` y la referencia aprobada correspondiente.
 
@@ -39,6 +39,7 @@ Una imagen generada con Magnific u otra herramienta puede protagonizar el hook c
 - La identidad admite fondos claros y oscuros. No conviertas todas las piezas en una interfaz negra.
 - Una pieza social debe sentirse diseñada para Instagram, no como una presentación corporativa o dashboard.
 - No agregues reglas, guías, paneles de edición ni controles dentro de la exportación.
+- No uses contador de slides («01 / 08») ni paginación en píldora. La continuidad la dan el logo, el pie editorial y los índices temáticos.
 
 ## Flujo de trabajo
 

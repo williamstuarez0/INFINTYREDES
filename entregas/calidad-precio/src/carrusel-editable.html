@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Calidad vs precio — carrusel</title>
+<style>
+@font-face { font-family: 'Poppins'; src: url('https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/assets/fonts/Poppins-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'Poppins'; src: url('https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/assets/fonts/Poppins-Medium.ttf'); font-weight: 500; }
+@font-face { font-family: 'Poppins'; src: url('https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/assets/fonts/Poppins-SemiBold.ttf'); font-weight: 600; }
+@font-face { font-family: 'Poppins'; src: url('https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/assets/fonts/Poppins-Bold.ttf'); font-weight: 700; }
+@font-face { font-family: 'Poppins'; src: url('https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/assets/fonts/Poppins-ExtraBold.ttf'); font-weight: 800; }
+
+:root {
+  --cyan: #008fd0; --lime: #95c11f; --blue: #0052a1; --black: #000; --gray: #575756;
+  --white: #fff; --paper: #f4f3ee; --night: #0a0d0f;
+  --grad: linear-gradient(90deg, var(--lime) 0%, var(--cyan) 100%);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: transparent; font-family: 'Poppins', sans-serif; }
+.slide { position: relative; width: 1080px; height: 1350px; overflow: hidden; margin: 0; }
+.paper { background: var(--paper); color: var(--black); }
+.night { background: var(--night); color: var(--white); }
+
+/* marco común: logo arriba, pie editorial abajo (sin contador) */
+.logo { position: absolute; top: 64px; left: 72px; width: 210px; z-index: 20; }
+.handle { position: absolute; top: 80px; right: 72px; font-size: 22px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; z-index: 20; }
+.foot { position: absolute; left: 72px; right: 72px; bottom: 64px; display: flex; justify-content: space-between; align-items: center; font-size: 24px; font-weight: 600; z-index: 20; }
+.foot .swipe { display: flex; align-items: center; gap: 14px; letter-spacing: .16em; text-transform: uppercase; }
+.foot .swipe i { display: inline-block; width: 64px; height: 2px; background: currentColor; position: relative; }
+.foot .swipe i::after { content: ''; position: absolute; right: 0; top: -6px; width: 12px; height: 12px; border-top: 2px solid currentColor; border-right: 2px solid currentColor; transform: rotate(45deg); }
+.foot .note { letter-spacing: .14em; text-transform: uppercase; opacity: .7; }
+
+.tag { display: inline-flex; align-items: center; gap: 14px; font-size: 24px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
+.tag b { display: inline-block; width: 40px; height: 4px; background: var(--grad); border-radius: 2px; }
+
+.grad { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+h1, h2 { font-weight: 800; letter-spacing: -0.045em; line-height: .96; }
+.sub { font-size: 34px; line-height: 1.34; font-weight: 400; }
+
+.badge { width: 68px; height: 68px; border-radius: 50%; display: grid; place-items: center; font-size: 38px; font-weight: 700; color: #fff; box-shadow: 0 10px 24px rgba(0,0,0,.25); }
+.badge.ok { background: var(--grad); }
+.badge.no { background: var(--black); border: 3px solid #fff; }
+
+.pill { display: inline-flex; align-items: center; gap: 12px; padding: 12px 22px 12px 14px; border-radius: 40px; font-size: 22px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+
+/* aviso automático cuando la imagen generada aún es la miniatura de baja resolución */
+.lowres-flag { display: none; position: absolute; z-index: 50; bottom: 118px; left: 50%; transform: translateX(-50%); background: #ffeb3b; color: #000; font: 700 20px 'Poppins'; padding: 8px 18px; border-radius: 6px; letter-spacing: .06em; }
+.slide.lowres .lowres-flag { display: block; }
+
+/* ---------- 01 HOOK ---------- */
+#s1 .head { position: absolute; top: 160px; left: 72px; right: 72px; }
+#s1 h1 { font-size: 150px; line-height: .9; }
+#s1 h1 + h1 { font-size: 66px; margin-top: 22px; line-height: 1; letter-spacing: -0.04em; }
+#s1 .hero { position: absolute; left: -20px; right: -20px; top: 520px; height: 830px; }
+#s1 .hero { -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 18%); mask-image: linear-gradient(180deg, transparent 0, #000 18%); }
+#s1 .hero img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 58%; mix-blend-mode: multiply; }
+#s1 .mark { position: absolute; display: flex; align-items: center; gap: 14px; z-index: 5; }
+#s1 .mark.l { left: 72px; top: 640px; }
+#s1 .mark.r { right: 72px; top: 640px; flex-direction: row-reverse; }
+#s1 .mark .pill { background: #fff; box-shadow: 0 10px 30px rgba(0,0,0,.12); }
+#s1 .mark .badge { width: 58px; height: 58px; font-size: 30px; }
+
+/* ---------- 02 SOL ---------- */
+#s2 .giant { position: absolute; top: 118px; left: 0; right: 0; text-align: center; font-size: 600px; font-weight: 800; letter-spacing: -0.07em; line-height: .8; }
+#s2 .giant span { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+#s2 .hero { position: absolute; left: 50%; top: 330px; width: 560px; transform: translateX(-50%) rotate(-7deg); filter: drop-shadow(0 50px 60px rgba(0,0,0,.7)); z-index: 3; }
+#s2 .hero img { width: 100%; display: block; }
+#s2 .copy { position: absolute; left: 72px; right: 72px; bottom: 150px; z-index: 5; }
+#s2 h2 { font-size: 92px; margin: 22px 0 22px; }
+#s2 .sub { color: #c9cccf; max-width: 820px; }
+#s2 .shade { position: absolute; left: 0; right: 0; bottom: 0; height: 620px; background: linear-gradient(180deg, rgba(10,13,15,0) 0%, rgba(10,13,15,.92) 45%, var(--night) 100%); z-index: 4; }
+#s2 .badge { position: absolute; z-index: 6; right: 206px; top: 318px; }
+
+/* ---------- 03 SALITRE ---------- */
+#s3 .bg { position: absolute; inset: 0; }
+#s3 .bg img { width: 100%; height: 100%; object-fit: cover; object-position: 40% 60%; }
+#s3 .wash { position: absolute; left: 0; right: 0; top: 0; height: 760px; background: linear-gradient(180deg, rgba(244,243,238,.97) 0%, rgba(244,243,238,.92) 62%, rgba(244,243,238,0) 100%); }
+#s3 .copy { position: absolute; top: 176px; left: 72px; right: 72px; }
+#s3 h2 { font-size: 112px; margin: 22px 0 26px; }
+#s3 .sub { color: #222; max-width: 700px; font-weight: 500; }
+#s3 .callout { position: absolute; right: 72px; bottom: 150px; display: flex; align-items: center; gap: 14px; }
+#s3 .callout .pill { background: var(--black); color: #fff; }
+
+/* ---------- 04 NOCHE ---------- */
+#s4 .split { position: absolute; left: 0; right: 0; top: 0; height: 860px; display: flex; }
+#s4 .half { position: relative; width: 50%; height: 100%; overflow: hidden; }
+#s4 .half img { width: 100%; height: 100%; object-fit: cover; }
+#s4 .half.l img { object-position: 38% 50%; }
+#s4 .half.r img { object-position: 64% 50%; }
+#s4 .seam { position: absolute; left: 539px; top: 0; width: 2px; height: 860px; background: #fff; z-index: 5; }
+#s4 .knob { position: absolute; left: 540px; top: 430px; transform: translate(-50%,-50%); width: 88px; height: 88px; border-radius: 50%; background: #fff; z-index: 6; display: grid; place-items: center; box-shadow: 0 10px 30px rgba(0,0,0,.4); }
+#s4 .knob svg { width: 46px; }
+#s4 .lab { position: absolute; bottom: 36px; z-index: 6; }
+#s4 .half.l .lab { left: 36px; } #s4 .half.r .lab { right: 36px; }
+#s4 .lab .pill { background: rgba(10,13,15,.75); color: #fff; backdrop-filter: blur(6px); }
+#s4 .lab .pill.ok { background: #fff; color: #000; }
+#s4 .dot { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; font-size: 17px; color: #fff; }
+#s4 .dot.no { background: #000; border: 2px solid #fff; } #s4 .dot.ok { background: var(--grad); }
+#s4 .topfade { position: absolute; left: 0; right: 0; top: 0; height: 220px; background: linear-gradient(180deg, rgba(10,13,15,.85), rgba(10,13,15,0)); z-index: 4; }
+#s4 .copy { position: absolute; left: 72px; right: 72px; top: 905px; }
+#s4 h2 { font-size: 80px; margin: 18px 0 18px; }
+#s4 .sub { color: #c9cccf; max-width: 900px; font-size: 32px; }
+
+/* ---------- 05 LA CUENTA ---------- */
+#s5 .giant { position: absolute; right: -60px; top: 560px; font-size: 600px; font-weight: 800; letter-spacing: -0.08em; line-height: .8; }
+#s5 .copy { position: absolute; top: 176px; left: 72px; right: 72px; }
+#s5 h2 { font-size: 90px; margin-top: 22px; }
+#s5 .ticket { position: absolute; left: 96px; top: 560px; width: 560px; background: #fff; padding: 40px 44px 56px; transform: rotate(-4deg); box-shadow: 0 40px 80px rgba(0,0,0,.18), 0 6px 16px rgba(0,0,0,.08); z-index: 3;
+  -webkit-mask: linear-gradient(#000 0 0) top / 100% calc(100% - 22px) no-repeat, conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / 44px 22px repeat-x; }
+#s5 .ticket .t-head { font-size: 22px; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--gray); padding-bottom: 20px; border-bottom: 2px dashed #cfcfcf; margin-bottom: 18px; }
+#s5 .row { display: flex; align-items: baseline; gap: 10px; font-size: 31px; font-weight: 500; padding: 6px 0; }
+#s5 .row .d { flex: 1; border-bottom: 3px dotted #bdbdbd; transform: translateY(-8px); }
+#s5 .row b { font-weight: 800; }
+#s5 .total { margin-top: 18px; padding-top: 22px; border-top: 3px solid #000; display: flex; justify-content: space-between; align-items: baseline; font-size: 30px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+#s5 .total span:last-child { font-size: 36px; text-transform: none; letter-spacing: -0.02em; }
+#s5 .nuance { position: absolute; left: 72px; right: 72px; bottom: 140px; font-size: 32px; line-height: 1.35; color: #333; }
+#s5 .nuance strong { font-weight: 700; color: #000; }
+
+/* ---------- 06 CHECKLIST ---------- */
+#s6 .hero { position: absolute; right: -70px; bottom: -60px; width: 640px; transform: rotate(-4deg); z-index: 1; filter: drop-shadow(0 40px 60px rgba(0,0,0,.6)); }
+#s6 .hero img { width: 100%; display: block; }
+#s6 .glow { position: absolute; right: -200px; bottom: -200px; width: 900px; height: 900px; border-radius: 50%; background: radial-gradient(circle, rgba(0,143,208,.35), rgba(149,193,31,.12) 45%, rgba(10,13,15,0) 70%); }
+#s6 .copy { position: absolute; top: 176px; left: 72px; width: 700px; z-index: 3; }
+#s6 h2 { font-size: 80px; margin: 22px 0 40px; }
+#s6 ol { list-style: none; }
+#s6 li { display: flex; gap: 22px; align-items: baseline; padding: 20px 0; border-top: 1px solid rgba(255,255,255,.18); font-size: 35px; font-weight: 600; line-height: 1.22; }
+#s6 li:last-child { border-bottom: 1px solid rgba(255,255,255,.18); }
+#s6 li span { font-size: 26px; font-weight: 800; letter-spacing: .06em; min-width: 44px; }
+#s6 .save { position: absolute; left: 72px; bottom: 60px; z-index: 3; display: flex; align-items: center; gap: 14px; font-size: 26px; font-weight: 600; }
+#s6 .save svg { width: 30px; }
+#s6 .cap { position: absolute; right: 72px; bottom: 150px; z-index: 3; }
+#s6 .cap .pill { background: rgba(10,13,15,.72); color: #fff; font-size: 18px; padding: 12px 20px; }
+
+/* ---------- 07 EVIDENCIA ---------- */
+#s7 .copy { position: absolute; top: 176px; left: 72px; right: 72px; z-index: 3; }
+#s7 h2 { font-size: 84px; margin: 22px 0 24px; }
+#s7 .sub { color: #333; max-width: 860px; font-size: 32px; }
+#s7 .main { position: absolute; right: 72px; top: 600px; width: 540px; height: 600px; border-radius: 24px; overflow: hidden; transform: rotate(2.5deg); box-shadow: 0 40px 80px rgba(0,0,0,.22); z-index: 2; }
+#s7 .main img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+#s7 .main .pill { position: absolute; left: 20px; bottom: 20px; background: #fff; color: #000; font-size: 18px; }
+#s7 .pol { position: absolute; width: 300px; background: #fff; padding: 12px 12px 0; box-shadow: 0 24px 50px rgba(0,0,0,.2); z-index: 3; }
+#s7 .pol img { width: 100%; height: 230px; object-fit: cover; display: block; }
+#s7 .pol p { font-size: 20px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; padding: 12px 4px 14px; display: flex; gap: 10px; align-items: center; }
+#s7 .pol p i { font-style: normal; font-weight: 800; }
+#s7 .p1 { left: 80px; top: 590px; transform: rotate(-6deg); }
+#s7 .p2 { left: 150px; top: 915px; transform: rotate(4deg); z-index: 4; }
+#s7 .p3 { left: 90px; top: 960px; transform: rotate(-3deg); z-index: 5; }
+
+/* ---------- 08 CTA ---------- */
+#s8 .bg { position: absolute; inset: 0; }
+#s8 .bg img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+#s8 .dim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,13,15,.55) 0%, rgba(10,13,15,.1) 30%, rgba(10,13,15,.35) 100%); }
+#s8 .glass { position: absolute; left: 72px; right: 72px; top: 590px; border-radius: 40px; background: rgba(255,255,255,.12); backdrop-filter: blur(28px) saturate(1.2); -webkit-backdrop-filter: blur(28px) saturate(1.2); border: 2px solid rgba(255,255,255,.35); box-shadow: 0 40px 90px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.4); padding: 64px 60px; color: #fff; }
+#s8 h2 { font-size: 76px; }
+#s8 h2.grad { margin-top: 6px; }
+#s8 .sub { margin: 32px 0 44px; font-size: 34px; color: #eef0f1; }
+#s8 .sub b { font-weight: 800; letter-spacing: .04em; }
+#s8 .cta { display: inline-flex; align-items: center; gap: 18px; background: var(--grad); color: #fff; padding: 22px 40px 22px 26px; border-radius: 60px; font-size: 38px; font-weight: 700; box-shadow: 0 16px 40px rgba(0,143,208,.35); }
+#s8 .cta svg { width: 44px; }
+#s8 .web { position: absolute; left: 0; right: 0; bottom: 64px; text-align: center; font-size: 24px; font-weight: 600; letter-spacing: .16em; color: #fff; text-transform: uppercase; }
+
+/* ---------- Capas para Canva (?capa=top|bottom): las imágenes generadas se colocan en Canva en alta resolución ---------- */
+body.capa { background: transparent; }
+body.capa .slide { margin: 0; }
+body.capa img.gen, body.capa .lowres-flag { visibility: hidden !important; }
+body.capa #s1, body.capa #s3, body.capa #s4 { background: transparent; }
+body.capa #s1::before { content: ''; position: absolute; left: 0; right: 0; top: 0; height: 670px; background: linear-gradient(180deg, var(--paper) 0, var(--paper) 520px, rgba(244,243,238,0) 670px); }
+body.capa #s4::before { content: ''; position: absolute; left: 0; right: 0; top: 860px; bottom: 0; background: var(--night); }
+body.capa-top #s2 { background: transparent; }
+body.capa-top #s2 .giant { visibility: hidden; }
+body.capa-bottom #s2 > :not(.giant) { visibility: hidden; }
+
+/* ---- Ajustes para el importador de Canva (no soporta gap ni backdrop-filter) ---- */
+.tag, .pill, .foot .swipe, #s1 .mark, #s5 .row, #s6 .save, #s7 .pol p, #s8 .cta { gap: 0 !important; }
+.tag b { margin-right: 16px; }
+.foot .swipe i { margin-left: 16px; }
+.pill > span:first-child, .pill > .badge { margin-right: 12px; }
+#s1 .mark.l .badge { margin-right: 14px; }
+#s1 .mark.r .badge { margin-left: 14px; }
+#s5 .row .d { margin: 0 12px; }
+#s6 li { display: block; padding: 18px 0; }
+#s6 li span { display: inline-block; margin-right: 18px; }
+#s6 .save svg { margin-right: 14px; }
+#s7 .pol p i { margin-right: 10px; }
+#s8 .cta svg { margin-right: 18px; }
+#s8 .glass { background: rgba(10,13,15,.66); }
+#s4 .lab .pill { background: rgba(10,13,15,.85); }
+#s6 .cap .pill { background: rgba(255,255,255,.18); }
+</style>
+</head>
+<body>
+
+<!-- 01 HOOK -->
+<section data-document-role="page" data-label="calidad-01-hook" class="slide paper" id="s1">
+    <img class="logo" src="https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/assets/brand/logo-horizontal-gradient-positive.svg" alt="">
+  <div class="handle">Calidad &gt; precio</div>
+  <div class="head">
+    <h1>Lo barato<br>se nota.</h1>
+    <h1 class="grad">Solo que no el primer día.</h1>
+  </div>
+  <div class="hero"><img class="gen" src="https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/entregas/calidad-precio/src/gen/hook-split.jpg" alt=""></div>
+  <div class="mark l"><div class="badge ok">✓</div><div class="pill">Día 1</div></div>
+  <div class="mark r"><div class="badge no">✕</div><div class="pill">Meses después</div></div>
+  <div class="foot"><span class="note">@infinitymanta</span><span class="swipe">Desliza <i></i></span></div>
+</section>
+
+<!-- 02 SOL -->
+<section data-document-role="page" data-label="calidad-02-sol" class="slide night" id="s2">
+    <img class="logo" src="https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/assets/brand/logo-horizontal-gradient-negative.svg" alt="">
+  <div class="handle">01 · Material</div>
+  <div class="giant"><span>SOL</span></div>
+  <div class="hero"><img class="gen" src="https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/entregas/calidad-precio/src/gen/sol-panel-cut.png" alt=""></div>
+  <div class="badge no">✕</div>
+  <div class="shade"></div>
+  <div class="copy">
+    <div class="tag"><b></b>Primero se va el color</div>
+    <h2>El sol de Manta<br>no hace <span class="grad">descuentos.</span></h2>
+    <p class="sub">Tintas y viniles que no son para exterior pierden color frente al sol.</p>
+  </div>
+  <div class="foot"><span class="note">@infinitymanta</span><span class="swipe">Desliza <i></i></span></div>
+</section>
+
+<!-- 03 SALITRE -->
+<section data-document-role="page" data-label="calidad-03-salitre" class="slide paper" id="s3">
+    <div class="bg"><img class="gen" src="https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/entregas/calidad-precio/src/gen/salitre-oxido.jpg" alt=""></div>
+  <div class="wash"></div>
+  <img class="logo" src="https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/assets/brand/logo-horizontal-gradient-positive.svg" alt="">
+  <div class="handle">02 · Estructura</div>
+  <div class="copy">
+    <div class="tag"><b></b>Después, el óxido</div>
+    <h2>El salitre<br>tampoco <span class="grad">negocia.</span></h2>
+    <p class="sub">Tornillos, bases y sellado tienen que estar pensados para la costa.</p>
+  </div>
+  <div class="callout"><div class="pill"><span class="badge no" style="width:36px;height:36px;font-size:18px;border-width:2px;box-shadow:none">✕</span>Fijación sin protección</div></div>
+  <div class="foot"><span class="note">@infinitymanta</span><span class="swipe">Desliza <i></i></span></div>
+</section>
+
+<!-- 04 NOCHE -->
+<section data-document-role="page" data-label="calidad-04-noche" class="slide night" id="s4">
+    <div class="split">
+    <div class="half l"><img class="gen" src="https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/entregas/calidad-precio/src/gen/noche-lightbox.jpg" alt="">
+      <div class="lab"><div class="pill"><span class="dot no">✕</span>Luz desigual</div></div></div>
+    <div class="half r"><img src="https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/entregas/calidad-precio/src/img/poolwings.jpg" alt="">
+      <div class="lab"><div class="pill ok"><span class="dot ok">✓</span>Luz pareja</div></div></div>
+  </div>
+  <div class="topfade"></div>
+  <div class="seam"></div>
+  <div class="knob"><svg viewBox="0 0 48 24"><path d="M14 4 4 12l10 8M34 4l10 8-10 8" fill="none" stroke="#0a0d0f" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <img class="logo" src="https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/assets/brand/logo-horizontal-white.svg" alt="">
+  <div class="handle">03 · Iluminación</div>
+  <div class="copy">
+    <div class="tag"><b></b>Y de noche</div>
+    <h2>De noche se nota<br><span class="grad">todavía más.</span></h2>
+    <p class="sub">La calidad del LED y de la fuente decide si tu marca brilla o parpadea.</p>
+  </div>
+  <div class="foot"><span class="note">@infinitymanta</span><span class="swipe">Desliza <i></i></span></div>
+</section>
+
+<!-- 05 LA CUENTA -->
+<section data-document-role="page" data-label="calidad-05-cuenta" class="slide paper" id="s5">
+  <img class="logo" src="https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/assets/brand/logo-horizontal-gradient-positive.svg" alt="">
+  <div class="handle">La cuenta real</div>
+  <div class="giant grad">×2</div>
+  <div class="copy">
+    <div class="tag"><b></b>Haz la cuenta</div>
+    <h2>El letrero más caro<br>es el que pagas<br><span class="grad">dos veces.</span></h2>
+  </div>
+  <div class="ticket">
+    <div class="t-head">Letrero “económico”</div>
+    <div class="row">Letrero<span class="d"></span><b>$</b></div>
+    <div class="row">Reparación<span class="d"></span><b>+</b></div>
+    <div class="row">Otro letrero<span class="d"></span><b>+</b></div>
+    <div class="row">Tiempo sin marca<span class="d"></span><b>+</b></div>
+    <div class="total"><span>Total</span><span class="grad">pagaste dos veces</span></div>
+  </div>
+  <p class="nuance">No todo lo económico es malo.<br><strong>Lo caro es no saber qué estás pagando.</strong></p>
+  <div class="foot"><span class="note">@infinitymanta</span><span class="swipe">Desliza <i></i></span></div>
+</section>
+
+<!-- 06 CHECKLIST -->
+<section data-document-role="page" data-label="calidad-06-checklist" class="slide night" id="s6">
+  <div class="glow"></div>
+  <div class="hero"><img src="https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/entregas/calidad-precio/src/img/miwis-letras-cutout.png" alt=""></div>
+  <div class="cap"><div class="pill">Proceso Infinity · Letras Miwis</div></div>
+  <img class="logo" src="https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/assets/brand/logo-horizontal-gradient-negative.svg" alt="">
+  <div class="handle">Checklist</div>
+  <div class="copy">
+    <div class="tag"><b></b>Antes de cotizar</div>
+    <h2>Antes de elegir<br>por precio, <span class="grad">pregunta:</span></h2>
+    <ol>
+      <li><span class="grad">01</span>¿Qué material y espesor lleva?</li>
+      <li><span class="grad">02</span>¿Está hecho para exterior y costa?</li>
+      <li><span class="grad">03</span>¿Qué LED y fuente usa?</li>
+      <li><span class="grad">04</span>¿Cómo se sella y se instala?</li>
+      <li><span class="grad">05</span>¿Qué cubre la garantía, por escrito?</li>
+    </ol>
+  </div>
+  <div class="save"><svg viewBox="0 0 24 30"><path d="M3 2h18v26l-9-7-9 7z" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round"/></svg>Guárdalo para cotizar</div>
+  <div class="foot"><span class="note"></span><span class="swipe">Desliza <i></i></span></div>
+</section>
+
+<!-- 07 EVIDENCIA -->
+<section data-document-role="page" data-label="calidad-07-infinity" class="slide paper" id="s7">
+  <img class="logo" src="https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/assets/brand/logo-horizontal-gradient-positive.svg" alt="">
+  <div class="handle">Así trabajamos</div>
+  <div class="copy">
+    <div class="tag"><b></b>Estándar Infinity</div>
+    <h2>Cotizamos el<br><span class="grad">resultado completo.</span></h2>
+    <p class="sub">Material, fabricación, instalación y garantía explicados desde el inicio.</p>
+  </div>
+  <div class="pol p1"><img src="https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/entregas/calidad-precio/src/img/miwis-plotter.jpg" style="object-position:50% 60%" alt=""><p><i class="grad">01</i>Impresión</p></div>
+  <div class="pol p2"><img src="https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/entregas/calidad-precio/src/img/miwis-pintura.jpg" style="object-position:50% 70%" alt=""><p><i class="grad">02</i>Pintura</p></div>
+  <div class="main"><img src="https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/entregas/calidad-precio/src/img/miwis-fachada.jpg" alt=""><div class="pill">Proyecto Infinity · Miwis Ice Cream</div></div>
+  <div class="foot"><span class="note">@infinitymanta</span><span class="swipe">Desliza <i></i></span></div>
+</section>
+
+<!-- 08 CTA -->
+<section data-document-role="page" data-label="calidad-08-cta" class="slide night" id="s8">
+  <div class="bg"><img src="https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/entregas/calidad-precio/src/img/neon-fuego.jpg" alt=""></div>
+  <div class="dim"></div>
+  <img class="logo" src="https://raw.githubusercontent.com/williamstuarez0/INFINTYREDES/claude/funny-dijkstra-7m2wxz/assets/brand/logo-horizontal-white.svg" alt="">
+  <div class="handle">@infinitymanta</div>
+  <div class="glass">
+    <h2>No compares precios.</h2>
+    <h2 class="grad">Compara lo que dura.</h2>
+    <p class="sub">Escribe <b>CALIDAD</b> por WhatsApp y te explicamos qué incluye tu cotización.</p>
+    <div class="cta"><svg viewBox="0 0 32 32"><path fill="#fff" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6a10.6 10.6 0 0 1-5.4-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1a8.7 8.7 0 0 1-4.3-3.8c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.3 5.2 4.6 1.9.8 2.7.9 3.7.7.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.3z"/></svg>+593 96 918 4321</div>
+  </div>
+  <div class="web">infinitymanta.com</div>
+</section>
+
+</body>
+</html>

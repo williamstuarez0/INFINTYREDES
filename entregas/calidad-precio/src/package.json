@@ -1,0 +1,6 @@
+{
+  "name": "infinity-carrusel-render",
+  "private": true,
+  "scripts": { "render": "node render.js" },
+  "dependencies": { "playwright-core": "^1.56.0" }
+}
