@@ -9,11 +9,13 @@
 
 ## Estilo vigente
 
-El estilo por defecto es **Póster Editorial**: `social/STYLE_POSTER_EDITORIAL.md`. Su implementación de referencia (`entregas/calidad-precio/`) es el nuevo piso de calidad, junto con `assets/references/carousel-approved/`. Sin contador de slides.
+El **único** estilo de carruseles es **Póster Editorial**: `social/STYLE_POSTER_EDITORIAL.md`. Su implementación de referencia (`entregas/calidad-precio/`) es el piso de calidad y el modelo a seguir. Se aplica siempre, aunque el pedido no lo mencione. Sin contador de slides.
+
+`assets/references/carousel-approved/` y los prompts antiguos de `prompts/` que lo citan son históricos: no se usan como referencia de estilo.
 
 ## Objetivo visual
 
-El carrusel debe sentirse como una campaña editorial hecha con el trabajo real de Infinity. La fotografía, el titular y el ritmo de la secuencia son protagonistas. La referencia de `assets/references/carousel-approved/` es el piso de calidad.
+El carrusel debe sentirse como una campaña editorial hecha con el trabajo real de Infinity. La fotografía, el titular y el ritmo de la secuencia son protagonistas. El piso de calidad es `entregas/calidad-precio/`.
 
 El slide 1 puede utilizar una imagen conceptual generada de alto impacto —incluyendo una imagen producida con Magnific— cuando ayude a detener el scroll y expresar el problema con mayor claridad. Los slides educativos siguientes también pueden usar escenas generadas distintas para demostrar problemas que no deben atribuirse a clientes reales. No hay un límite rígido de una sola imagen: la cantidad depende de la historia. Los slides de solución, proceso, resultado y evidencia deben volver al material real de Infinity. Aplicar `content/AI_VISUAL_HOOKS.md`.
 
