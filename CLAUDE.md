@@ -10,7 +10,7 @@ Antes de crear cualquier pieza:
 2. Si la pieza requiere una idea, guion, calendario o intención comercial, lee `content/README.md`, `content/CONTENT_STRATEGY.md` y `content/FUNNEL.md`.
 3. Lee el archivo del canal: `social/CAROUSELS.md` o `social/REELS.md`. Para carruseles, aplica el estilo vigente `social/STYLE_POSTER_EDITORIAL.md` y parte de su implementación de referencia en `entregas/calidad-precio/`.
 4. Lee `social/MEDIA_POLICY.md`, `social/COPY_GUIDE.md` y `social/EXPORT_CHECKLIST.md`.
-5. Revisa los archivos disponibles en `assets/` y la referencia aprobada correspondiente.
+5. Revisa los archivos disponibles en `assets/`. Para carruseles, lee `social/STYLE_POSTER_EDITORIAL.md` y revisa `entregas/calidad-precio/`: es la única referencia de estilo.
 
 ## Estrategia antes de diseño
 
@@ -35,7 +35,8 @@ Una imagen generada con Magnific u otra herramienta puede protagonizar el hook c
 - No inventes clientes, obras, testimonios, cifras, certificaciones ni resultados.
 - No presentes un trabajo real de Infinity como ejemplo de un error. Para explicar errores, usa encuadres anónimos, diagramas sobre una composición genérica o un placeholder claramente rotulado.
 - Si falta una imagen necesaria, coloca un bloque `IMAGEN PENDIENTE: [descripción exacta]` y repórtalo. No sustituyas la imagen con círculos, rectángulos decorativos o falsos mockups.
-- La referencia aprobada de carrusel es el piso de calidad. No la reduzcas a una secuencia de tarjetas idénticas.
+- Todo carrusel usa **únicamente** el estilo Póster Editorial (`social/STYLE_POSTER_EDITORIAL.md`), aprobado con el carrusel «Lo barato se nota» (`entregas/calidad-precio/`). No uses otro estilo aunque no se mencione en el pedido. No copies sus textos ni repitas la misma grilla: mantén el sistema y cambia el contenido.
+- `assets/references/carousel-approved/` es un archivo histórico. No lo uses como referencia de estilo.
 - La identidad admite fondos claros y oscuros. No conviertas todas las piezas en una interfaz negra.
 - Una pieza social debe sentirse diseñada para Instagram, no como una presentación corporativa o dashboard.
 - No agregues reglas, guías, paneles de edición ni controles dentro de la exportación.

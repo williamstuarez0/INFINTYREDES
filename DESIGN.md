@@ -131,5 +131,5 @@ Evitar:
 
 ## 10. Fuentes de verdad
 
-Este sistema consolida el manual de marca 2023, el SVG suministrado, el análisis `design.md`, el sitio actual de Infinity y el carrusel aprobado guardado en `assets/references/carousel-approved/`. Cuando exista una contradicción, el manual controla logo y colores; el trabajo aprobado y el sitio actual controlan el lenguaje digital contemporáneo.
+Este sistema consolida el manual de marca 2023, el SVG suministrado, el análisis `design.md`, el sitio actual de Infinity y el carrusel aprobado «Lo barato se nota» (`entregas/calidad-precio/`), que define el estilo Póster Editorial (`social/STYLE_POSTER_EDITORIAL.md`), único estilo vigente para carruseles. Cuando exista una contradicción, el manual controla logo y colores; el trabajo aprobado y el sitio actual controlan el lenguaje digital contemporáneo.
 
