@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Guion Reel 01 — La prueba de los 3 segundos</title>
+<style>
+@font-face { font-family: 'Poppins'; src: url('../../assets/fonts/Poppins-Regular.ttf'); font-weight: 400; }
+@font-face { font-family: 'Poppins'; src: url('../../assets/fonts/Poppins-Medium.ttf'); font-weight: 500; }
+@font-face { font-family: 'Poppins'; src: url('../../assets/fonts/Poppins-SemiBold.ttf'); font-weight: 600; }
+@font-face { font-family: 'Poppins'; src: url('../../assets/fonts/Poppins-Bold.ttf'); font-weight: 700; }
+@font-face { font-family: 'Poppins'; src: url('../../assets/fonts/Poppins-ExtraBold.ttf'); font-weight: 800; }
+@page { size: A4; margin: 16mm 14mm 16mm; }
+:root { --cyan:#008fd0; --lime:#95c11f; --paper:#f4f3ee; --night:#0a0d0f; --gray:#575756; --grad: linear-gradient(90deg, var(--lime), var(--cyan)); }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Poppins', sans-serif; color: #111; font-size: 9.6pt; line-height: 1.45; }
+.head { display: flex; justify-content: space-between; align-items: center; padding-bottom: 10mm; }
+.head img { width: 44mm; }
+.head .tag { font-size: 7.5pt; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--gray); }
+.eyebrow { display: flex; align-items: center; gap: 3mm; font-size: 8pt; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; }
+.eyebrow b { width: 10mm; height: 1.2mm; border-radius: 1mm; background: var(--grad); display: inline-block; }
+h1 { font-size: 26pt; font-weight: 800; letter-spacing: -0.04em; line-height: 1.02; margin: 3mm 0 2mm; }
+h1 span { color: var(--cyan); }
+.lead { font-size: 10.5pt; color: #333; max-width: 150mm; }
+.meta { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin: 7mm 0 8mm; border-top: 1px solid #ddd; border-bottom: 1px solid #ddd; }
+.meta div { padding: 3mm 3mm 3mm 0; }
+.meta small { display: block; font-size: 6.8pt; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--gray); }
+.meta strong { font-size: 9.5pt; font-weight: 700; }
+table { width: 100%; border-collapse: collapse; }
+thead th { text-align: left; font-size: 7pt; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: #fff; background: var(--night); padding: 2.4mm 2.6mm; }
+thead th:first-child { border-radius: 2mm 0 0 0; } thead th:last-child { border-radius: 0 2mm 0 0; }
+tbody td { vertical-align: top; padding: 2.8mm 2.6mm; border-bottom: 1px solid #e3e2dc; }
+tbody tr { break-inside: avoid; }
+tbody tr:nth-child(even) td { background: #faf9f6; }
+td.t { font-weight: 700; white-space: nowrap; width: 17mm; }
+td.img { width: 52mm; color: #333; }
+td.dlg { width: 62mm; }
+td.dlg q { font-weight: 700; quotes: "«" "»"; }
+td.dlg em { color: var(--gray); font-style: normal; }
+td.dlg .vo { display: inline-block; font-size: 6.8pt; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--cyan); margin-bottom: .8mm; }
+td.txt { font-weight: 600; }
+td.txt .g { color: #5f8a00; }
+.foot { margin-top: 8mm; display: flex; justify-content: space-between; font-size: 7.5pt; color: var(--gray); letter-spacing: .08em; }
+</style>
+</head>
+<body>
+  <div class="head">
+    <img src="../../assets/brand/logo-horizontal-gradient-positive.svg" alt="Infinity">
+    <span class="tag">Reel 01 · Guion</span>
+  </div>
+
+  <div class="eyebrow"><b></b>Guion del video</div>
+  <h1>¿Tu cliente entiende tu fachada<br>en <span>3 segundos?</span></h1>
+  <p class="lead">La prueba de los 3 segundos, vista como la vive un cliente real: pasando en carro frente al local.</p>
+
+  <div class="meta">
+    <div><small>Etapa</small><strong>TOFU</strong></div>
+    <div><small>Pilar</small><strong>Visibilidad que funciona</strong></div>
+    <div><small>Acción única</small><strong>Guardar el video</strong></div>
+    <div><small>Duración</small><strong>~30 s</strong></div>
+    <div><small>Formato</small><strong>1080 × 1920 · 9:16</strong></div>
+  </div>
+
+  <table>
+    <thead><tr><th>Tiempo</th><th>Imagen</th><th>Diálogo</th><th>Texto en pantalla</th></tr></thead>
+    <tbody>
+      <tr><td class="t">0,0–2,5</td><td class="img">Dueña, plano medio corto, mirando al lente.</td><td class="dlg"><q>¿Tu cliente entiende tu fachada en tres segundos? Probemos.</q></td><td class="txt">¿SE ENTIENDE EN <span class="g">3 SEGUNDOS</span>?</td></tr>
+      <tr><td class="t">2,5–3,5</td><td class="img">Dueña; clic del cronómetro.</td><td class="dlg"><q>Así la ve cuando pasa.</q></td><td class="txt">—</td></tr>
+      <tr><td class="t">3,5–6,5</td><td class="img">POV desde un carro que pasa frente a la fachada a velocidad normal.</td><td class="dlg"><em>(ruido del carro y de la calle)</em></td><td class="txt">Contador 3 → 2 → 1</td></tr>
+      <tr><td class="t">6,5–7,0</td><td class="img">Corte seco a la dueña; vuelve a pulsar el cronómetro.</td><td class="dlg"><q>¡Tiempo!</q></td><td class="txt">—</td></tr>
+      <tr><td class="t">7,0–10,0</td><td class="img">Dueña; levanta un dedo por pregunta.</td><td class="dlg"><q>¿Cómo se llama? ¿Qué vende? ¿Por dónde se entra?</q></td><td class="txt">01 NOMBRE · 02 QUÉ VENDE · 03 ENTRADA</td></tr>
+      <tr><td class="t">10,0–11,0</td><td class="img">Dueña, cómplice.</td><td class="dlg"><q>Ahora, despacio.</q></td><td class="txt">—</td></tr>
+      <tr><td class="t">11,0–14,0</td><td class="img">La misma pasada en cámara lenta + señalador NOMBRE.</td><td class="dlg"><span class="vo">Voz en off</span><br><q>El nombre: grande y con contraste. Tiene que leerse desde la calle, no desde la puerta.</q></td><td class="txt">01 · Se lee <span class="g">desde la calle</span></td></tr>
+      <tr><td class="t">14,0–17,0</td><td class="img">Cámara lenta + señalador QUÉ VENDE.</td><td class="dlg"><span class="vo">Voz en off</span><br><q>Lo que vende: una palabra clara. “Autopartes” dice más que cualquier eslogan.</q></td><td class="txt">02 · <span class="g">Una palabra</span> clara</td></tr>
+      <tr><td class="t">17,0–20,0</td><td class="img">Cámara lenta + señalador ENTRADA + flecha.</td><td class="dlg"><span class="vo">Voz en off</span><br><q>La entrada: a la vista. Si el cliente tiene que buscarla, ya dudó.</q></td><td class="txt">03 · La entrada, <span class="g">a la vista</span></td></tr>
+      <tr><td class="t">20,0–24,5</td><td class="img">Dueña, más cerca, en tono seguro.</td><td class="dlg"><q>Tu cliente no se detiene a leer. Por eso en Infinity diseñamos para quien pasa, no para quien se detiene.</q></td><td class="txt">Diseñar para <span class="g">quien pasa.</span></td></tr>
+      <tr><td class="t">24,5–28,5</td><td class="img">Dueña, cercana; gesto hacia el ícono de guardar.</td><td class="dlg"><q>Guárdalo, y la próxima vez que pases por tu local… hazle la prueba.</q></td><td class="txt"><span class="g">Guárdalo</span> y hazle la prueba a tu local</td></tr>
+      <tr><td class="t">28,5–30,0</td><td class="img">Logo · @infinitymanta. La dueña pulsa el cronómetro otra vez.</td><td class="dlg"><em>(clic)</em></td><td class="txt">Logo</td></tr>
+    </tbody>
+  </table>
+
+  <div class="foot"><span>Infinity Diseño y Publicidad · Manta</span><span>@infinitymanta</span></div>
+</body>
+</html>
