@@ -9,14 +9,14 @@ Sistema visual operativo para crear contenido de Infinity Diseño y Publicidad s
 3. Para estrategia, ideas y guiones, empieza en `content/README.md`.
 4. Para carruseles, lee `social/CAROUSELS.md`; para reels, `social/REELS.md`.
 5. Usa los recursos de `assets/`. No redibujes el logotipo ni inventes fotografías de trabajos de Infinity.
-6. Usa `assets/references/carousel-approved/` como piso de calidad, no como una plantilla rígida.
+6. Para carruseles, usa solo el estilo Póster Editorial (`social/STYLE_POSTER_EDITORIAL.md`), con `entregas/calidad-precio/` como referencia. `assets/references/carousel-approved/` es histórico.
 
 ## Estructura
 
 - `assets/brand/`: variantes SVG autorizadas del logotipo.
 - `assets/fonts/`: familia Poppins.
 - `assets/photography/`: banco de fotografías reales de Infinity.
-- `assets/references/`: piezas aprobadas para calibrar la calidad.
+- `assets/references/`: piezas históricas; ya no son la referencia de estilo (ver `entregas/calidad-precio/`).
 - `assets/manual/`: manual de marca original.
 - `tokens/`: colores, tipografía y reglas de composición.
 - `content/`: estrategia, TOFU/MOFU/BOFU, pilares, hooks, fórmulas, guiones, producción y CTA.

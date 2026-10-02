@@ -1,6 +1,6 @@
 # Estilo vigente de carruseles: Póster Editorial
 
-Aprobado por el cliente en septiembre de 2026 con el carrusel «Lo barato se nota» (`entregas/calidad-precio/`). Es el **estilo por defecto** para los próximos carruseles de Instagram. Reemplaza la plantilla anterior de «foto arriba + bloque negro abajo + contador», que se sentía repetida de una publicación a otra.
+Aprobado por el cliente en septiembre de 2026 con el carrusel «Lo barato se nota» (`entregas/calidad-precio/`). Es el **único estilo** para los carruseles de Instagram de Infinity: se aplica siempre, aunque el pedido no lo mencione. Reemplaza la plantilla anterior de «foto arriba + bloque negro abajo + contador», que se sentía repetida de una publicación a otra.
 
 Implementación de referencia: `entregas/calidad-precio/src/carrusel.html`. Para una pieza nueva, duplica esa carpeta y cambia el contenido, no el sistema.
 
