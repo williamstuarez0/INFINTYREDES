@@ -21,7 +21,7 @@ Estilo: Póster Editorial (`social/STYLE_POSTER_EDITORIAL.md`).
 | 04 | `logo-04-plotter.png` | foto completa | Plotter de corte real de Infinity (`stickers.jpg`) |
 | 05 | `logo-05-prueba.png` | papel | Checklist guardable + «400%» gigante |
 | 06 | `logo-06-vectorizar.png` | noche | Trazado vectorial con nodos y manejadores sobre el logo pixelado |
-| 07 | `logo-07-evidencia.png` | papel | Collage real: stickers troquelados, logo 3D, papelería, promocionales |
+| 07 | `logo-07-evidencia.png` | papel | Collage real: stickers (FDM), logo 3D (Costa Salud), papelería (Golden Veterinary), promocionales (vasos Dr. Víctor Vélez) |
 | 08 | `logo-08-cta.png` | foto + vidrio | Impresión real de stickers + panel de vidrio |
 
 ## Caption sugerido
@@ -44,7 +44,8 @@ Estilo: Póster Editorial (`social/STYLE_POSTER_EDITORIAL.md`).
 
 ## Fotografías reales usadas
 
-- `assets/photography/stickers.jpg` (plotter de corte) · `stickers-ig-4.jpg` · `logos-3d.jpg` · `papeleria.jpeg` · `articulos-promocionales.jpeg` · `stickers-ig-5.jpg`.
+- `assets/photography/stickers.jpg` (plotter de corte) · `stickers-ig-5.jpg` (CTA).
+- Slide 07: `stickers-ig-7.jpg` · `logos-3d-4.jpg` · `papeleria-5.jpg` · `articulos-promocionales-2.jpg` (fotos nuevas agregadas al banco).
 
 Todas como evidencia positiva.
 
