@@ -7,7 +7,7 @@ Estilo: Póster Editorial (`social/STYLE_POSTER_EDITORIAL.md`).
 - **Etapa:** TOFU → MOFU.
 - **Audiencia:** emprendedores y dueños de negocio que solo tienen su logo como imagen de WhatsApp, captura o foto de perfil.
 - **Pilar:** Antes de producir.
-- **Hook:** «Tu logo de WhatsApp no sirve para imprimir.»
+- **Hook:** «Si tu logo llegó por WhatsApp, no sirve para imprimir.» (se evita «Tu logo de WhatsApp», que puede leerse como el logo de la app).
 - **Estructura:** tensión → por qué pasa (compresión) → imagen vs. vector → por qué importa en producción → prueba guardable → solución (redibujar en vector) → evidencia real → CTA.
 - **Acción única:** escribir `LOGO` por WhatsApp para revisar el archivo.
 
