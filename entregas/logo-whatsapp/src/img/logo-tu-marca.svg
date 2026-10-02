@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 640">
+  <circle cx="300" cy="250" r="230" fill="#0a0d0f"/>
+  <g transform="translate(300 250) rotate(35)">
+    <path d="M0 -150 C 110 -90 110 90 0 150 C -110 90 -110 -90 0 -150 Z" fill="#ffffff"/>
+    <path d="M0 -118 L0 175" stroke="#0a0d0f" stroke-width="14" stroke-linecap="round" fill="none"/>
+  </g>
+  <text x="300" y="610" text-anchor="middle" font-family="Poppins" font-weight="800" font-size="96" letter-spacing="-3" fill="#0a0d0f">TU MARCA</text>
+</svg>
